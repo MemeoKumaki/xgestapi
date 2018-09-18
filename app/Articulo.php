@@ -1,0 +1,54 @@
+<?php
+
+namespace xgestapi;
+
+use Awobaz\Compoships\Database\Eloquent\Model;
+
+class Articulo extends Model
+{
+    protected $table = 'fcart001';
+    protected $primaryKey = 'ACODAR';
+    
+    protected $fillable = ['ACODAR', 'adescr', 'ACARAC', 'ACODALT2', 'ARESCAR1', 'APVP1', 'APREBASE', 
+        'APESO', 'ALARGO', 'AANCHO', 'AALTO', 'XFECALTA', 'AMARCA'];
+    
+    protected $hidden = ["APVP2","APVP3","APVP4","AUNENT","AUNSAL","APTENT","APTSAL","AUNENTANT","AUNSALANT","ASTMIN","APRCOS","APMCOS","AFULEN","AFULSL",
+                        "ANENTR","ANSALI","ASTAND","AULTPRO","AEXIIN","ACOSIN","AOBSE","ASTOCKB","ACOSTEB","ABLOQUEADO","ACOMISION","ANOCOMIS","ACTUALIZAD",
+                        "FECACTU","ASTKULTEN","ANOINVENT","AVEN_COS","AFAMILIA","ARESNUM1","ARESNUM2","ARESSN1","ARESSN2","ARESSN3","ARESSN4","ARESFEC1","ARESFEC2","ARESCAR2","ARESNUM3","ARESNUM5","ARESNUM6",
+                        "ACODALT3","ACODALT4","AAMPDES","ARUTAFOTO","XUSUARIO","XFECALTA","ARESSN5","ARESSN6","ARESSN7","ARESSN8","ARESSN9","ARESSN10","ARESNUM7","ARESNUM8","ACONCERT","ACSIGUVEN",
+                        "ATIPART","ALINDES","AESCARGO","ACODCARGO","ATIPCARGO","AFACTORCAR","AAVISO","ASECWEB","ABULTOS","AUNIBUL","ATIPO","ACODNUEVO","AIDIOMA","ACUEVEN","ACUECOM","ATARRES","AOMICAL1",
+                        "AOMICAL2","AOMICAL3","AOMICAL4","AOMICAL5","AOMICAL6","ACODALT5","ACODALT6","ACODALT7","ACODALT8","ACODALT9","ACODALT10","AINTEGRA","ADESUNI","AFACTORUNI","APROVHABI","APROVALTER",
+                        "ACARAC","ALINKWEB","ANUEPREBAS","AOMICAL7","AGAMAPPR","AMARMIN","AARTPADRE","ACANMINFAC","ABULPALET","ADTOTARI1","ADTOTARI2","ADTOTARI3","ADTOTARI4","ADTOTARI5","ADTOTARI6",
+                        "ADTOTARI7","ACOSMANUAL","ATALLACOL","ADESTACADO","AOMICAL8","ACANSELOUT","AFECSELOUT","AOBSWEB","APEDPESTPV","AINT01","AINT02","AINT03","AINT04","AINT05","AINT06","AINT07",
+                        "AINT08","AINT09","AINT10","AINT11","AINT12","AINCLTACT","APVPIVA2","APUNTOS","AMARGENPUN","AEXCLRAP","ATIPO2","AEXCLPUNT","AINTRASTAT","ACODDESPIE","AUNIDESPIE","APORMARTPV",
+                        "AIMPMARTPV","ACANMOVART","AFECCAMBAS","AFECCAMPV1","AFECCAMPV2","AFECCAMPV3","AFECCAMPV4","AFECCAMPV5","AFECCAMPV6","AFECCAMPV7","ANOSUMACAN","AIRWEBTPV","AENVDEFEC","ASECWEB2",
+                        "ASECWEB3","ASECWEB4","ASECWEB5","ATIV2012","URL_AMIGAB","META_KEYS","META_DESC","ACSEPB","ACSEPR","APARTNUMB","AINT13","AINT14","AINT15","AINT16","AINT17","AINT18","AINT19",
+                        "AINT20","APRENSRFAB","AAUTOALBAR","ADTOTARI8","AFECCAMPV8","ATASA","AINDROTANU","ATIEPREVEN","ATARIWEB","AARTENLIQ","ADIASCADUC","ARECETA","AULTMODIF","ADEPOSITO","APSID","ADESCRICOR",
+                        "AINVSUJPAS","ACANMAXFAC","ATIPIGIC","AEMBALABLE","ACATROTAC","ACARNACIO"];
+    
+    protected $attributes = [
+        'AOBSE'     => '',
+        'AAMPDES'   => '',
+        'AIDIOMA'   => '',
+        'ACARAC'    => '',
+        'AOBSWEB'   => '',
+        'META_KEYS' => '',
+        'META_DESC' => '',
+    ];      
+    
+    public $timestamps = false;
+    public $incrementing = false;
+    
+    
+    public function marca()
+    {
+        return $this->hasOne('xgestapi\Marca', 'MMARCA', 'AMARCA');
+    }
+    
+    public function familia(){
+        return $this->belongsTo('xgestapi\Familia', 'FCOD', 'ARESNUM4');
+    }
+    
+    
+    
+}
