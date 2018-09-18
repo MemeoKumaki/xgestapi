@@ -13,11 +13,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot() {
-        \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
-             echo '<pre>';
-             print_r([ $query->sql, $query->time, $query->bindings]);
-             echo '</pre>';
-        });
+
     }
 
     /**
